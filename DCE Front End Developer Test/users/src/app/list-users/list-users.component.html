@@ -1,0 +1,20 @@
+<div>
+    <h3>List User</h3>
+
+    <div class="users">
+        <div *ngFor="let user of listUsers.data">
+            <img [src]="user.avatar" alt={{user.first_name}}>
+            <b>{{user.first_name + " "+ user.last_name}}</b>
+            <span>{{user.email}}</span>
+            <div>
+                <button>Edit</button>
+                <button>Delete</button>
+            </div>
+        </div>
+    </div>
+    <div class="btn-group">
+        <button class="button" (click)="pageDecrement()" [disabled]="page-1<1">Page {{page-1}}</button>
+        <button class="button">Page {{page}}</button>
+        <button class="button" (click)="pageIncrement()">Page {{page+1}}</button>
+    </div>
+</div>

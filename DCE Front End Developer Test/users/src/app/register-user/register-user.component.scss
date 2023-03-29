@@ -1,0 +1,22 @@
+div {
+    padding: .1em 1em;
+
+    h3 {
+        border-bottom: 1px solid;
+        padding: .5em;
+    }
+
+    form {
+        display: flex;      
+        justify-content: center;        
+        background-color: var(--color1);
+        padding: 1em;
+        gap: 1vw;
+        border-radius: 1em;
+
+        div {
+            display: flex;
+            gap: .5vw;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+<div>
+    <h3> User Registration</h3>
+    <form #userRegForm="ngForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" required [(ngModel)]="newUser.name" name="name">
+        </div>
+        <div>
+            <label for="job">Job</label>
+            <input type="text" id="job" required [(ngModel)]="newUser.job" name="job">
+        </div>
+        <button type="submit" [disabled]="!userRegForm.form.valid">Register</button>
+    </form>
+</div>

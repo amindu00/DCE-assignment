@@ -1,0 +1,44 @@
+div {
+    padding: .1em 1em;
+
+    h3 {
+        border-bottom: 1px solid;
+        padding: .5em;
+    }
+
+    img {
+        border-radius: 1em;
+    }
+
+    .users {
+        margin: 1em;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2em;
+        justify-content: center;
+
+        >div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: .5em;
+            padding: 1em;
+            height: fit-content;
+            width: fit-content;
+            border: solid var(--color3);
+            border-radius: 1em;
+
+            button {
+                margin: .5em;
+            }
+        }
+    }
+
+    .btn-group {
+        margin: 1em;
+        display: flex;
+        justify-content: center;
+        gap: 2em;
+    }
+}

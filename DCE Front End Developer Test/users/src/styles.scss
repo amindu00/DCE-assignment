@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --color1: #BBD6B8;
+    --color2: #AEC2B6;
+    --color3: #94AF9F;
+    --color4: #DBE4C6;
+    --color5: #CCD5AE;  
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color1);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+button{
+    background-color:var(--color5);
+    border: none;
+    padding: .5em;
+    border-radius: .5em;
+    text-align: center;
+    cursor: pointer;
+}
