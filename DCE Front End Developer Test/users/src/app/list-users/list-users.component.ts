@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { IListUsers } from './IListUsers';
 import { UserService } from '../services/user.service';
 
@@ -7,18 +7,36 @@ import { UserService } from '../services/user.service';
   templateUrl: './list-users.component.html',
   styleUrls: ['./list-users.component.scss']
 })
-export class ListUsersComponent implements OnInit {
+
+export class ListUsersComponent implements OnChanges {
+  @Input() page!: number;
+
   constructor(private UserService: UserService) { }
-  page = 1;
+
   listUsers!: IListUsers;
+  isEdit = false;
+  user: any;
 
-  pageIncrement():void {this.page++};
-  pageDecrement():void {this.page--};
-
-
-  ngOnInit(): void {
+  ngOnChanges(changes: SimpleChanges): void {   //not calling function when changes occured
     this.UserService.getUsers(this.page).subscribe(d => this.listUsers = d);
+    console.log(changes);
   }
 
+  onDelete(id: number) {  //trouble with ui deleteing the div
+    this.UserService.deleteUser(id).subscribe();
+    const index = id - 1 - (this.listUsers.page - 1) * this.listUsers.per_page;
+    delete this.listUsers.data[index];
+  }
 
+  onEdit(user: any) {
+    this.user = user;
+    this.isEdit = true;
+  }
+
+  onSubmitEdit() {
+    this.UserService.editUsers(this.user.id, { name: this.user.name, job: this.user.job })
+      .subscribe(d => console.log(d));
+    this.isEdit = false;
+    this.user = null;
+  }
 }
