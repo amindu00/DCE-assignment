@@ -65,5 +65,9 @@ div {
         display: flex;
         justify-content: center;
         gap: 2em;
+        
+        label{
+            padding: .5em;
+        }
     }
 }

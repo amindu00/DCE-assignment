@@ -13,6 +13,8 @@ export class ListUsersComponent implements OnChanges {
 
   constructor(private UserService: UserService) { }
 
+  pageIncrement() { this.page++ }
+  pageDecrement() { this.page-- }
   listUsers!: IListUsers;
   isEdit = false;
   user: any;
@@ -20,6 +22,7 @@ export class ListUsersComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {   //not calling function when changes occured
     this.UserService.getUsers(this.page).subscribe(d => this.listUsers = d);
     console.log(changes);
+
   }
 
   onDelete(id: number) {  //trouble with ui deleteing the div

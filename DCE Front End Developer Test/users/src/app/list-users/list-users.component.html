@@ -14,9 +14,9 @@
         </ng-template>
     </div>
     <div class="btn-group">
-        <button class="button" (click)="page=page-1" [disabled]="page-1<1">Page {{page-1}}</button>
-        <button class="button">Page {{page}}</button>
-        <button class="button" (click)="page=page+1">Page {{page+1}}</button>
+        <button class="button" (click)="pageDecrement()" [disabled]="page-1<1">Page {{page-1}}</button>
+        <label>Page {{page}}</label>
+        <button class="button" (click)="pageIncrement()">Page {{page+1}}</button>
     </div>
 
     <div *ngIf="isEdit" class="edit">
