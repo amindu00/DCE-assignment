@@ -10,6 +10,7 @@ import { RegisterUserComponent } from './register-user/register-user.component';
 import { RouterModule } from '@angular/router';
 import { ListUsersComponent } from './list-users/list-users.component';
 import { UserService } from './services/user.service';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { UserService } from './services/user.service';
     UserComponent,
     RegisterUserComponent,
     ListUsersComponent,
+    EditUserComponent,
   ],
   imports: [
     BrowserModule,

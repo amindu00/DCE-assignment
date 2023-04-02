@@ -22,7 +22,6 @@ export class ListUsersComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {   //not calling function when changes occured
     this.UserService.getUsers(this.page).subscribe(d => this.listUsers = d);
     console.log(changes);
-
   }
 
   onDelete(id: number) {  //trouble with ui deleteing the div
@@ -31,15 +30,13 @@ export class ListUsersComponent implements OnChanges {
     delete this.listUsers.data[index];
   }
 
+  cancelEdit(isEditEvent: boolean) {
+    this.isEdit = isEditEvent;
+    this.user = null;
+  }
+
   onEdit(user: any) {
     this.user = user;
     this.isEdit = true;
-  }
-
-  onSubmitEdit() {
-    this.UserService.editUsers(this.user.id, { name: this.user.name, job: this.user.job })
-      .subscribe(d => console.log(d));
-    this.isEdit = false;
-    this.user = null;
   }
 }

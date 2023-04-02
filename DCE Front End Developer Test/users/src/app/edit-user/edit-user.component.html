@@ -1,0 +1,15 @@
+<div class="edit">
+    <h3> Edit {{user.first_name}}</h3>
+    <form #userEditForm="ngForm" (ngSubmit)="onSubmitEdit()">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" required [(ngModel)]="user.name" name="name">
+        </div>
+        <div>
+            <label for="job">Job</label>
+            <input type="text" id="job" required [(ngModel)]="user.job" name="job">
+        </div>
+        <button type="submit" [disabled]="!userEditForm.form.valid">Edit</button>
+        <button type="button" (click)="editCancel()">Cancel</button>
+    </form>
+</div>
